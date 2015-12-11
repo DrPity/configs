@@ -82,8 +82,6 @@ extract () {
 
 # Some aliases
 alias ll='ls -la'
-alias kogniHome='cd /Users/DrPity/Workspace/KogniHome/'
-alias frontend='cd /Users/DrPity/Workspace/KogniHome/kognihome-tp1.kognichef-frontend/'
 alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 alias bashreload=". ~/.bash_profile"
 alias server="python -m SimpleHTTPServer"
