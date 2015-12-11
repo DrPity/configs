@@ -44,7 +44,6 @@ $WHITE\D{%H:%M}$RED]$NO_COLOR$YELLOW\$(parse_git_branch)$ $NO_COLOUR"
 PS2="$RED-$WHITE-$WHITE-$NO_COLOUR "
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/DrPity/Development/android-sdk/platform-tools:/Development/android-sdk/tools:$PATH
-
 export CLICOLOR=1
 export ANDROID_HOME="/Development/android-sdk"
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;33'
