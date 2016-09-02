@@ -1,13 +1,8 @@
 #!/bin/bash
-
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Users/DrPity/Development/android-sdk/platform-tools:$PATH"
-# export PATH="/Development/android-sdk/platform-tools:/Development/android-sdk/tools:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export CLICOLOR=1
 export ANDROID_HOME="/Users/DrPity/Development/android-sdk"
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-# export PATH=./node_modules/.bin:$PATH
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;33'
 
 HISTFILESIZE=10000000
@@ -45,7 +40,7 @@ case $TERM in
        ;;
 esac
 
-
+# Rage mode
 function flip_table() {
  [[ $? = 0 ]] && curErr='' || curErr='1'
  if [[ $curErr ]]; then # One error
@@ -73,6 +68,7 @@ function parse_git_branch () {
 }
 
 
+# extracting archives
 extract () {
   if [ -f $1 ] ; then
       case $1 in
@@ -93,7 +89,6 @@ extract () {
       echo "'$1' is not a valid file!"
   fi
 }
-
 
 
 # Some aliases
