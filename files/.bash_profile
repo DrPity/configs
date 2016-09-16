@@ -39,7 +39,7 @@ function get_ip() {
 # Titelbar
 case $TERM in
   xterm*|rxvt*)
-  TITLEBAR='\033]0;\u@\h:\w\007'
+  TITLEBAR=$'\033]0; ¯\_(ツ)_/¯ \007'
   ;;
   *)
   TITLEBAR=""
@@ -68,7 +68,7 @@ get_exit_status(){
 
 PROMPT_COMMAND='flipTable=$(flip_table)'
 
-PS1='\
+PS1='${TITLEBAR}\
 ${BLUE}[\
 ${WHITE}\u${BLUE}@${WHITE}\h\
 ${BLUE}]-[\
