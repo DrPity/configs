@@ -12,11 +12,9 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;33'
 
 HISTFILESIZE=10000000
 
-eval "$(_PLATFORMIO_COMPLETE=source platformio)"
+# eval "$(_PLATFORMIO_COMPLETE=source platformio)"
 
-#
 WHITE=$'\033[1;37m'
-ORANGE=$'\033[1;33m'
 BLUE=$'\033[1;34m'
 GREEN=$'\033[0;32m'
 ORANGE=$'\033[0;33m'
@@ -27,32 +25,32 @@ NO_COLOUR=$'\033[0m'
 # Function to display my ip
 function get_ip() {
   getIp="$(ipconfig getifaddr en0)"
-  if [ -z "$getIp" ];
+  if [ -z "$getIp" ]
   then
     echo $"127.0.0.1"
   else
-    echo $getIp
+    echo ${getIp}
   fi
 }
 
 
-# Titelbar
-case $TERM in
-  xterm*|rxvt*)
-  TITLEBAR=$'\033]0; ¯\_(ツ)_/¯ \007'
-  ;;
-  *)
-  TITLEBAR=""
-  ;;
-esac
+# # Titelbar
+# case $TERM in
+#   xterm*|rxvt*)
+#   TITLEBAR=$'¯\_(ツ)_/¯'
+#   ;;
+#   *)
+#   TITLEBAR=""
+#   ;;
+# esac
 
 
 function flip_table() {
   es=$?
   if [[ $es -eq 0 ]]; then
-    echo "( °—°)   ┬──┬"
+    echo ""
   else
-    echo "(╯°□°)╯︵┻━┻ "
+    echo " (╯°□°)╯︵┻━┻ "
   fi
 }
 
@@ -66,20 +64,14 @@ get_exit_status(){
    fi
 }
 
-PROMPT_COMMAND='flipTable=$(flip_table)'
+PROMPT_COMMAND='flipTable=$(flip_table) ip=$(get_ip)'
 
-PS1='${TITLEBAR}\
-${BLUE}[\
-${WHITE}\u${BLUE}@${WHITE}\h\
-${BLUE}]-[\
-${WHITE}\
-$(get_ip)\
-${BLUE}]-[\
-${WHITE}\[${PWD}\]\
-${BLUE}]-${BLUE}[${WHITE}\[${flipTable}\]${BLUE}]
-[${WHITE}\D{%H:%M}${BLUE}]${BLUE}${NO_COLOR}${ORANGE}\[$(parse_git_branch)\] => ${NO_COLOUR}'
+PS1='\[$BLUE\][\
+\[$WHITE\]\u\[$BLUE\]@\[$WHITE\]\h\[$BLUE\]]-[\[$WHITE\]\[$ip\]\[$BLUE\]]-[\[$WHITE\]\[${PWD}\]\[$BLUE\]]\[$ORANGE\]\[${flipTable}\]\[$BLUE\]
+[\[$WHITE\]\D{%H:%M}\[$BLUE\]]\[$ORANGE\]\[$(parse_git_branch)\] => \[$NO_COLOUR\]'
 
-PS2="$BLUE-$WHITE-$WHITE-$NO_COLOUR"
+PS2='\[$BLUE\][\
+\[$WHITE\]\u\[$BLUE\]@\[$WHITE\]\h\[$BLUE\]]\[$ORANGE\] => '
 
 
 # Show current git branch
