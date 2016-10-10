@@ -104,8 +104,8 @@ extract () {
 
 alias ll='ls -la'
 alias lg='ls -la | grep'
-alias DT='tee ~/Desktop/terminal.txt'
-alias kogniHome='cd /Users/DrPity/Workspace/KogniHome/'
+alias pipe='tee ~/Desktop/terminal.txt'
+alias kognihome='cd /Users/DrPity/Workspace/KogniHome/'
 alias frontend='cd /Users/DrPity/Workspace/KogniHome/kognihome-tp1.kognichef-frontend/'
 alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 alias bashreload='. ~/.bash_profile'
@@ -115,7 +115,7 @@ alias make5mb='mkfile 5m ./5MB.dat'
 alias make10mb='mkfile 10m ./10MB.dat'
 alias ttop="top -R -F -s 10 -o rsize"
 alias myip='curl ip.appspot.com -w "\n"'
-alias netCons='lsof -i'
+alias netcons='lsof -i'
 alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
 alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
 
