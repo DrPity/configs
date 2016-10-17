@@ -65,7 +65,7 @@ PROMPT_COMMAND='flipTable=$(flip_table) ip=$(get_ip)'
 
 PS1='\[$BLUE\][\
 \[$WHITE\]\u\[$BLUE\]@\[$WHITE\]\h\[$BLUE\]]-[\[$WHITE\]\[$ip\]\[$BLUE\]]-[\[$WHITE\]\[${PWD}\]\[$BLUE\]]\[$ORANGE\]\[${flipTable}\]\[$BLUE\]
-[\[$WHITE\]\D{%H:%M}\[$BLUE\]]\[$ORANGE\]\[$(parse_git_branch)\] => \[$WHITE\]'
+[\[$WHITE\]\D{%H:%M}\[$BLUE\]]\[$ORANGE\]$(parse_git_branch) => \[$WHITE\]'
 
 PS2='\[$BLUE\][\
 \[$WHITE\]\u\[$BLUE\]@\[$WHITE\]\h\[$BLUE\]]\[$ORANGE\] => '
