@@ -1,8 +1,7 @@
 #!/bin/bash
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/Users/DrPity/Development/android-sdk/platform-tools:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/DrPity/Development/android-sdk/platform-tools:$PATH:/usr/local/opt/python/libexec/bin:$PATH"
 export CLICOLOR=1
-export ANDROID_HOME="/Users/DrPity/Development/android-sdk"
 export BLOCKSIZE=1k
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;33'
 
@@ -17,7 +16,7 @@ ORANGE=$'\033[0;33m'
 NO_COLOUR=$'\033[0m'
 
 
-# Function to display my ip
+#   Get my ip --------------------------------------
 function get_ip() {
   getIp="$(ipconfig getifaddr en0)"
   if [ -z "$getIp" ]
@@ -29,16 +28,7 @@ function get_ip() {
 }
 
 
-# # Titelbar
-# case $TERM in
-#   xterm*|rxvt*)
-#   TITLEBAR=$'¯\_(ツ)_/¯'
-#   ;;
-#   *)
-#   TITLEBAR=""
-#   ;;
-# esac
-
+#   Rage mode --------------------------------------
 
 function flip_table() {
   es=$?
@@ -105,8 +95,6 @@ extract () {
 alias ll='ls -la'
 alias lg='ls -la | grep'
 alias pipe='tee ~/Desktop/terminal.txt'
-alias kognihome='cd /Users/DrPity/Workspace/KogniHome/'
-alias frontend='cd /Users/DrPity/Workspace/KogniHome/kognihome-tp1.kognichef-frontend/'
 alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
 alias bashreload='. ~/.bash_profile'
 alias qfind="find . -name "
@@ -114,7 +102,7 @@ alias make1mb='mkfile 1m ./1MB.dat'
 alias make5mb='mkfile 5m ./5MB.dat'
 alias make10mb='mkfile 10m ./10MB.dat'
 alias ttop="top -R -F -s 10 -o rsize"
-alias myip='curl ip.appspot.com -w "\n"'
+alias myip='curl http://ipecho.net/plain; echo'
 alias netcons='lsof -i'
 alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
 alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
@@ -130,17 +118,17 @@ alias webServer='ssh tk1ll3r@deneb.uberspace.de'
 
 zipf () { zip -r "$1".zip "$1" ; }
 ql () { qlmanage -p "$*" >& /dev/null; }
-showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
+# showa () { /usr/bin/grep --color=always -i -a1 $@ ~/Library/init/bash/aliases.bash | grep -v '^\s*$' | less -FSRXc ; }
 spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 findPid () { lsof -t -c "$@" ; }
 info() {
-     echo -e "\nYou are logged on ${RED}$HOST"
-     echo -e "\nAdditionnal information:$NC " ; uname -a
-     echo -e "\n${RED}Users logged on:$NC " ; w -h
-     echo -e "\n${RED}Current date :$NC " ; date
-     echo -e "\n${RED}Machine stats :$NC " ; uptime
-     echo -e "\n${RED}Current network location :$NC " ; scselect
-     echo -e "\n${RED}Public facing IP Address :$NC " ;myip
+     echo -e "\nYou are logged on ${ORANGE}$HOST ${NO_COLOUR}"
+     echo -e "\nAdditionnal information:$NC ${NO_COLOUR}" ; uname -a
+     echo -e "\n${ORANGE}Users logged on:$NC ${NO_COLOUR} " ; w -h
+     echo -e "\n${ORANGE}Current date :$NC ${NO_COLOUR} " ; date
+     echo -e "\n${ORANGE}Machine stats :$NC ${NO_COLOUR} " ; uptime
+     echo -e "\n${ORANGE}Current network location :$NC ${NO_COLOUR} " ; scselect
+     echo -e "\n${ORANGE}Public facing IP Address :$NC ${NO_COLOUR}"; myip
     #  echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
      echo
  }
