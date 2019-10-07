@@ -111,8 +111,8 @@ alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
 
 httpHeaders () { /usr/bin/curl -I -L $@ ; }
 httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
-alias localServer='python -m SimpleHTTPServer'
-alias webServer='ssh tk1ll3r@deneb.uberspace.de'
+alias simpleServer='python -m SimpleHTTPServer'
+
 
 #   More Stuff --------------------------------------
 
