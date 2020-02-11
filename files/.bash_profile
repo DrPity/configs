@@ -7,8 +7,6 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;33'
 
 HISTFILESIZE=10000000
 
-eval "$(thefuck --alias)"
-
 WHITE=$'\033[1;37m'
 BLUE=$'\033[1;34m'
 GREEN=$'\033[0;32m'
@@ -33,9 +31,9 @@ function get_ip() {
 function flip_table() {
   es=$?
   if [[ $es -eq 0 ]]; then
-    echo ""
+    echo "$BLUE ( °—°)   ┬──┬ "
   else
-    echo " (╯°□°)╯︵┻━┻ "
+    echo "$ORANGE (╯°□°)╯︵┻━┻ "
   fi
 }
 
@@ -54,11 +52,12 @@ PROMPT_COMMAND='flipTable=$(flip_table) ip=$(get_ip)'
 #   Custom bash --------------------------------------
 
 PS1='\[$BLUE\][\
-\[$WHITE\]\u\[$BLUE\]@\[$WHITE\]\h\[$BLUE\]]-[\[$WHITE\]\[$ip\]\[$BLUE\]]-[\[$WHITE\]\[${PWD}\]\[$BLUE\]]\[$ORANGE\]\[${flipTable}\]\[$BLUE\]
+\[$WHITE\]\u\[$BLUE\]@\[$WHITE\]\h\[$BLUE\]]-[\[$WHITE\]\[$ip\]\[$BLUE\]]-[\[$WHITE\]\[${PWD}\]\[$BLUE\]]\[${flipTable}\]\[$BLUE\]
 [\[$WHITE\]\D{%H:%M}\[$BLUE\]]\[$ORANGE\]$(parse_git_branch) => \[$WHITE\]'
 
 PS2='\[$BLUE\][\
 \[$WHITE\]\u\[$BLUE\]@\[$WHITE\]\h\[$BLUE\]]\[$ORANGE\] => '
+
 
 
 # Show current git branch
