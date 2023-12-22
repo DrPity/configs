@@ -124,28 +124,32 @@ alias ll='ls -la'
 alias lg='ls -la | grep'
 alias pipe='tee ~/Desktop/terminal.txt'
 alias filetree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/ /' -e 's/-/|/'"
-alias bashreload='. ~/.bash_profile'
+alias bashreload='. ~/.zshrc'
 alias qfind="find . -name "
 alias make1mb='mkfile 1m ./1MB.dat'
 alias make5mb='mkfile 5m ./5MB.dat'
 alias make10mb='mkfile 10m ./10MB.dat'
 alias ttop="top -R -F -s 10 -o rsize"
-alias myip='curl http://ipecho.net/plain; echo'
+alias myexip='curl https://ipinfo.io/ip; echo'
+alias myexcountry='curl https://ipinfo.io/country; echo'
 alias netcons='lsof -i'
-alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
-alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
+alias finderShowHidden='defaults write com.apple.finder AppleShowAllFiles TRUE'
+alias finderHideHidden='defaults write com.apple.finder AppleShowAllFiles FALSE'
+
 alias serve='python -m SimpleHTTPServer'
 
 findPid () { lsof -t -c "$@" ; }
+
 info() {
      echo -e "\nYou are logged on ${ORANGE}$HOST ${NO_COLOUR}"
      echo -e "\nAdditionnal information:$NC ${NO_COLOUR}" ; uname -a
      echo -e "\n${ORANGE}Users logged on:$NC ${NO_COLOUR} " ; w -h
      echo -e "\n${ORANGE}Current date :$NC ${NO_COLOUR} " ; date
      echo -e "\n${ORANGE}Machine stats :$NC ${NO_COLOUR} " ; uptime
-     echo -e "\n${ORANGE}Current network location :$NC ${NO_COLOUR} " ; scselect
-     echo -e "\n${ORANGE}Public facing IP Address :$NC ${NO_COLOUR}"; myip
-    #  echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
+     echo -e "\n${ORANGE}Current network location :$NC ${NO_COLOUR}" ; scselect
+     echo -e "\n${ORANGE}Public facing IP Address :$NC ${NO_COLOUR}"; myexip
+     echo -e "\n${ORANGE}Public facing Country :$NC ${NO_COLOUR}"; myexcountry
+     echo -e "\n${ORANGE}DNS Configuration: $NC ${NO_COLOUR}" ; scutil --dns
      echo
  }
 
@@ -188,3 +192,8 @@ PROMPT='flipTable=$(flip_table) ip=$(get_ip)'
 PS1='%{$BLUE%}[%{$WHITE%}%D{%H:%M}%{$BLUE%}]-[%{$WHITE%}${PWD}%{$BLUE%}]-[%{$WHITE%}$(get_ip)%{$BLUE%}]%{$ORANGE%}$(parse_git_branch) => %{$WHITE%}'
 # PS1='%{$BLUE%}[%{$WHITE%}%n%{$BLUE%}@%{$WHITE%}%m%{$BLUE%}]-[%{$WHITE%}$(get_ip)%{$BLUE%}]-[%{$WHITE%}${PWD}%{$BLUE%}][%{$WHITE%}%D{%H:%M}%{$BLUE%}]%{$ORANGE%}$(parse_git_branch) => %{$WHITE%}'
 
+
+# pnpm
+export PNPM_HOME="/Users/michaelschade/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
