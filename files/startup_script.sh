@@ -1,7 +1,12 @@
 #!/bin/bash
 
+
+# Kill wireguard
+WIREGUARD_CONFIG="/Users/themachine1337/Workspace/01_config/AirVPN_wg/Europe.conf"
+sudo wg-quick down $WIREGUARD_CONFIG
 # Set DNS servers for Wi-Fi to empty
 sudo networksetup -setdnsservers Wi-Fi "Empty"
+
 
 if [ $? -eq 0 ]; then
     echo "DNS servers for Wi-Fi set to empty"
@@ -51,7 +56,6 @@ fi
 
 # Start WireGuard VPN
 # Ensure 'wg-quick' is installed and configured
-WIREGUARD_CONFIG="/Users/themachine1337/Workspace/01_config/AirVPN_wg/Europe.conf"
 sudo wg-quick up $WIREGUARD_CONFIG
 if [ $? -eq 0 ]; then
     echo "WireGuard VPN started on interface $WIREGUARD_CONFIG"
