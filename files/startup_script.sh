@@ -48,10 +48,6 @@ fi
 
 # Ensure Wi-Fi interface is up
 check_internet
-if [ $? -ne 0 ]; then
-    echo "Error: Unable to establish internet connection."
-    exit 1
-fi
 
 
 # Start WireGuard VPN
