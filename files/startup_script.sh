@@ -2,7 +2,6 @@
 
 # Set DNS servers for Wi-Fi to empty
 sudo networksetup -setdnsservers Wi-Fi "Empty"
-sudo Vdown
 
 if [ $? -eq 0 ]; then
     echo "DNS servers for Wi-Fi set to empty"
